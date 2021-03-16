@@ -29,7 +29,7 @@ export const Container = styled.form`
     }
   }
 
-  button[type="submit"]{
+  button[type='submit'] {
     width: 100%;
     padding: 0 1.5rem;
     height: 4rem;
@@ -38,12 +38,12 @@ export const Container = styled.form`
     border-radius: 0.25rem;
     border: 0;
     font-size: 1rem;
-    margin-top: 1.5rem; 
+    margin-top: 1.5rem;
     font-weight: 600;
 
     transition: filter 0.2s;
 
-    &:hover{
+    &:hover {
       filter: brightness(0.9);
     }
   }
@@ -54,34 +54,38 @@ export const TransactionTypeContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+`;
 
-  button{
-    height: 4rem;
-    border: 1px solid #d7d7d7;
-    border-radius: 0.25rem;
+interface RadioBoxProps {
+  isActive: boolean;
+}
 
-    background: transparent;
+export const RadioBox = styled.button<RadioBoxProps>`
+  height: 4rem;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.25rem;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: ${(props) => (props.isActive ? '#aaa' : 'transparent')};
 
-    transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    &:hover{
-      border-color: ${darken(0.1, '#d7d7d7')};
-    }
+  transition: border-color 0.2s;
 
-    img{
-      width: 20px;
-      height: 20px;
-    }
+  &:hover {
+    border-color: ${darken(0.1, '#d7d7d7')};
+  }
 
-    span{
-      display: inline-block;
-      margin-left: 1rem;
-      font-size: 1rem;
-      color: var(--text-title);
-    }
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: var(--text-title);
   }
 `;
