@@ -15,7 +15,9 @@ export function TransactionsTable() {
   const [transactions, setTransaction] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    api.get('/transactions').then((response) => setTransaction(response.data.transactions));
+    api
+      .get('/transactions')
+      .then((response) => setTransaction(response.data.transactions));
   }, []);
 
   return (
@@ -35,9 +37,18 @@ export function TransactionsTable() {
             return (
               <tr key={transaction.id}>
                 <td>{transaction.title}</td>
-                <td className={transaction.type}>{transaction.amount}</td>
+                <td className={transaction.type}>
+                  {new Intl.NumberFormat('USA', {
+                    style: 'currency',
+                    currency: 'USD',
+                  }).format(transaction.amount)}
+                </td>
                 <td>{transaction.category}</td>
-                <td>{transaction.createdAt}</td>
+                <td>
+                  {new Intl.DateTimeFormat('USA').format(
+                    new Date(transaction.createdAt)
+                  )}
+                </td>
               </tr>
             );
           })}

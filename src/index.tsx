@@ -13,7 +13,7 @@ createServer({
       transactions: [
         {
           id: 1,
-          title: 'Freenlance de website',
+          title: 'Website freelance',
           type: 'deposit',
           category: 'Dev',
           amount: 6000,
@@ -22,7 +22,7 @@ createServer({
 
         {
           id: 2,
-          title: 'Aluguel',
+          title: 'House rent',
           type: 'withdraw',
           category: 'Casa',
           amount: 1200,
