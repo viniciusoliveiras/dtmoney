@@ -12,6 +12,7 @@ interface Transaction {
 }
 
 export function TransactionsTable() {
+  const data = useContext(TransactionsContext);
   const [transactions, setTransaction] = useState<Transaction[]>([]);
 
   useEffect(() => {
